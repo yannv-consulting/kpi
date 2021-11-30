@@ -1,4 +1,21 @@
 <div>
+	<p>Filtrage par ville ou par état d'avancement</p>
+	<p>
+		<mat-form-field appearance="fill">
+			<mat-label>Ville</mat-label>
+			<input matInput type="text" [(ngModel)]="ville">
+		</mat-form-field>
+	</p>
+	<p>
+		<mat-form-field appearance="fill">
+			<mat-label>Etat d'avancement</mat-label>
+			<input matInput type="text" [(ngModel)]="etat_d_avancement">
+		</mat-form-field>
+	</p>
+
+	<button mat-raised-button (click)="getInvestments(1)">Envoyer</button>
+</div>
+<div>
 	<table mat-table [dataSource]="investments" class="mat-elevation-z8" *ngIf="investments">
 		<ng-container matColumnDef="id">
 			<th mat-header-cell *matHeaderCellDef> Id </th>

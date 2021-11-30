@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InvestmentsService } from 'src/app/services/investments.service';
 import { Investment } from 'src/app/models/investment.model';
 import { PageEvent } from '@angular/material/paginator';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-investments-list',
@@ -16,27 +17,14 @@ export class InvestmentsListComponent implements OnInit {
   length: number;
   pageIndex: number;
   pageSize = 10;
+  @Input() ville = "";
+  @Input() etat_d_avancement = "";
   displayedColumns: string[] = [
     'id',
     'titreoperation',
     'entreprise',
-    // 'annee_de_livraison',
     'ville',
-    // 'mandataire',
-    // 'nombre_de_lots',
-    // 'ppi',
-    // 'lycee',
-    // 'notification_du_marche',
-    // 'codeuai',
-    // 'longitude',
     'etat_d_avancement',
-    // 'montant_des_ap_votes_en_meu',
-    // 'cao_attribution',
-    // 'latitude',
-    // 'maitrise_d_oeuvre',
-    // 'mode_de_devolution',
-    // 'annee_d_individualisation',
-    // 'enveloppe_prev_en_meu'
   ];
 
   constructor(private investmentsService: InvestmentsService) { }
@@ -47,7 +35,7 @@ export class InvestmentsListComponent implements OnInit {
   }
 
   getInvestments(page){
-    this.investmentsService.getAll(page)
+    this.investmentsService.getAll(page, this.ville, this.etat_d_avancement)
       .subscribe({
         next: (data) => {
           this.data = data;
