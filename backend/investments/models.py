@@ -2,14 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-# ETAT_D_AVANCEMENT = (
-#     ("Opération Livrée", "Opération Livrée"),
-#     ("En Chantier", "En Chantier"),
-#     ("Sélection entreprise", "Sélection entreprise"),
-#     ("Suspendue", "Suspendue"),
-#     ("Etude de maîtrise d'œuvre", "Etude de maîtrise d'œuvre"),
-# )
-
 class Investments(models.Model):
     titreoperation = models.TextField(blank=True, null=True)
     entreprise = models.CharField(max_length=50, blank=True, null=True)

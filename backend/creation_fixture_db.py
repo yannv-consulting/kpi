@@ -13,7 +13,5 @@ for index, inv in enumerate(data):
         "fields": inv
     })
 
-print(newfile)
-
 with open("investments.json", "w") as outfile:
     json.dump(newfile, outfile)
