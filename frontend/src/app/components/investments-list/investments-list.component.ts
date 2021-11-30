@@ -61,8 +61,9 @@ export class InvestmentsListComponent implements OnInit {
 
   event(event?:PageEvent){
     console.log(event)
-    if (event?.pageIndex){
-      this.getInvestments(event?.pageIndex)
+    if (event?.pageIndex != null){
+      console.log('ff')
+      this.getInvestments(event?.pageIndex + 1)
     }
   }
 
